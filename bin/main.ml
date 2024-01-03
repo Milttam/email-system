@@ -51,8 +51,12 @@ let rec repl (eval : string -> string) : unit =
       input |> eval |> print_endline;
       repl eval
 
-let redact s = 
-match String.length s with | x -> for i = 0 to x do print_string "*" done
+let redact s =
+  match String.length s with
+  | x ->
+      for i = 0 to x do
+        print_string "*"
+      done
 
 let inbox_print (mes : Message.t) =
   print_string "                     --- ";
@@ -338,7 +342,7 @@ and sendMessage user =
               check_input user))
 
 and logout user =
-  print_string (messages_to_json ());
+  (* print_string (messages_to_json ()); *)
   write (messages_to_json ()) "messages.json";
   write (users_to_json ()) "users.json";
   print_endline
@@ -354,8 +358,7 @@ and exit () =
 (******************************************************************************)
 
 let () =
-  print_string (messages_to_json ());
-  print_string (users_to_json ());
+  (* print_string (messages_to_json ()); print_string (users_to_json ()); *)
   print_endline
     "\n\n\n\n\n\
     \                     ------------------------------------------- Welcome \
