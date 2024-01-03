@@ -1,0 +1,4 @@
+(library
+ (name sparkplugs)
+ (public_name Sparkplugs)
+ (libraries yojson core str))
